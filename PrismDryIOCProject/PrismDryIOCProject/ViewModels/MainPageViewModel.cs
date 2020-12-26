@@ -91,7 +91,9 @@ namespace PrismDryIOCProject.ViewModels
         }
         private async void SecondPageAction()
         {
-            await _navigationService.NavigateAsync("SecondPage");
+            var parameter = new NavigationParameters();
+            parameter.Add("title", "SecondPage");
+            await _navigationService.NavigateAsync("SecondPage", parameter);
         }
 
         private async void DisplayAlert()

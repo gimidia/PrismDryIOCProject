@@ -39,14 +39,10 @@ namespace PrismDryIOCProject.ViewModels
             await _navigationService.NavigateAsync("ThirdPage");
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters)
-        {
-
-        }
-
-        public void OnNavigatedTo(INavigationParameters parameters)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
             NavigationMode = parameters.GetNavigationMode();
+            Title = parameters.GetValue<string>("title");
             IsVisible = NavigationMode == NavigationMode.Back;
         }
     }
