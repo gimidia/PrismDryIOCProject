@@ -47,7 +47,6 @@ namespace PrismDryIOCProject.ViewModels
         public void OnNavigatedTo(INavigationParameters parameters)
         {
             NavigationMode = parameters.GetNavigationMode();
-
             IsVisible = NavigationMode == NavigationMode.Back;
         }
     }

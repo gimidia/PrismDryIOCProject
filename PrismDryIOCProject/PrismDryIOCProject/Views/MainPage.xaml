@@ -2,9 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrismDryIOCProject.Views.MainPage"
+             xmlns:local="clr-namespace:PrismDryIOCProject.Behaviors"
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <ListView ItemsSource="{Binding Blogs, Mode=TwoWay}" HasUnevenRows="True" SelectedItem="{Binding SelectedBlog}" local:ItemTappedAttached.Command="{Binding NavigateToBlogCommand}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="10" VerticalOptions="FillAndExpand">
+                            <Frame.Content>
+                                <StackLayout>
+                                    <Label Text="{Binding BlogTitle}"/>
+                                    <BoxView Color="LightGray" VerticalOptions="FillAndExpand" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
+                                    <Label Text="{Binding BlogDescription}" LineBreakMode="WordWrap" HeightRequest="100"></Label>
+                                </StackLayout>
+                            </Frame.Content>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <Label Text="Welcome to Xamarin Forms and Prism!" />
         <Button Text="DisplayAlert" Command="{Binding DisplayAlertCommand}"/>
         <Button Text="Go To Second Page"

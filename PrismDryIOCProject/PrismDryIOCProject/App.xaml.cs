@@ -30,6 +30,7 @@ namespace PrismDryIOCProject
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<SecondPage, SecondPageViewModel>();
             containerRegistry.RegisterForNavigation<ThirdPage, ThirdPageViewModel>();
+            containerRegistry.RegisterForNavigation<BlogPage, BlogPageViewModel>();
         }
     }
 }
