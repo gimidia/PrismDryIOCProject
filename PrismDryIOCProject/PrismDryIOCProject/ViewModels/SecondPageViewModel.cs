@@ -36,7 +36,10 @@ namespace PrismDryIOCProject.ViewModels
 
         private async void ThirdPageAction()
         {
-            await _navigationService.NavigateAsync("ThirdPage");
+            var parameter = new NavigationParameters();
+            parameter.Add("title", "ThirdPage");
+            await _navigationService.NavigateAsync("ThirdPage", parameter);
+            
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
