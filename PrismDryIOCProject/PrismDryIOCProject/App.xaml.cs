@@ -19,7 +19,8 @@ namespace PrismDryIOCProject
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            //await NavigationService.NavigateAsync(nameof(MenuPage) + "/" + nameof(NavigationPage) + "/" + nameof(MainPage));
+            await NavigationService.NavigateAsync("MenuPage/NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -31,6 +32,7 @@ namespace PrismDryIOCProject
             containerRegistry.RegisterForNavigation<SecondPage, SecondPageViewModel>();
             containerRegistry.RegisterForNavigation<ThirdPage, ThirdPageViewModel>();
             containerRegistry.RegisterForNavigation<BlogPage, BlogPageViewModel>();
+            containerRegistry.RegisterForNavigation<MenuPage, MenuPageViewModel>();
         }
     }
 }
