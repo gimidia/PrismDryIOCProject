@@ -7,11 +7,9 @@
              x:Class="PrismDryIOCProject.Views.MenuPage">
     <MasterDetailPage.Master>
 
-        <NavigationPage Title="Menu" 
-                        Icon="ic_hamburger.png">
+        <ContentPage Title="Menu" 
+                        IconImageSource="ic_hamburger.png">
 
-            <x:Arguments>
-                <ContentPage Title="PrismDryIOCProjec">
 
                     <ListView ItemsSource="{Binding MenuItems}"
                               SelectedItem="{Binding SelectedMenuItem}"
@@ -50,9 +48,8 @@
                         </ListView.Behaviors>
 
                     </ListView>
-                </ContentPage>
-            </x:Arguments>
-        </NavigationPage>
+
+        </ContentPage>
     </MasterDetailPage.Master>
   
 </MasterDetailPage>
