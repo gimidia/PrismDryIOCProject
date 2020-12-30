@@ -1,2 +1,2 @@
 # PrismDryIOCProject
-Projeto para estudo do IOC Container DryIOC
+Projeto Xamrin.Forms para estudo do IOC Container DryIOC
