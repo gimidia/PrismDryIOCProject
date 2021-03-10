@@ -9,7 +9,17 @@
 
         <ContentPage Title="Menu" 
                         IconImageSource="ic_hamburger.png">
-
+            <StackLayout>
+         
+                            <Frame Margin="10" VerticalOptions="FillAndExpand">
+                                <Frame.Content>
+                                    <StackLayout>
+                                        <Label Text="Olá, Gilberto"/>
+                                        <BoxView Color="LightGray" VerticalOptions="FillAndExpand" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
+                                        <Label Text="Cidade: Erechim-RS" HeightRequest="20"></Label>
+                                    </StackLayout>
+                                </Frame.Content>
+                            </Frame>
 
             <ListView ItemsSource="{Binding MenuItems}"
                               SelectedItem="{Binding SelectedMenuItem}"
@@ -21,6 +31,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+
 
                             <!-- Main design for our menu items -->
                             <StackLayout VerticalOptions="FillAndExpand"
@@ -48,7 +59,7 @@
                 </ListView.Behaviors>
 
             </ListView>
-
+            </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>
 
