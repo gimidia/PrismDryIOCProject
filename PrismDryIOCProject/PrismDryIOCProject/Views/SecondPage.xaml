@@ -4,8 +4,12 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismDryIOCProject.Views.SecondPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms">
     <StackLayout>
+
+        <microcharts:ChartView x:Name="Chart1" HeightRequest="100"/>
+        <microcharts:ChartView x:Name="Chart2" HeightRequest="100"/>
 
         <Label Text="{Binding NavigationMode}" HorizontalOptions="CenterAndExpand"></Label>
 

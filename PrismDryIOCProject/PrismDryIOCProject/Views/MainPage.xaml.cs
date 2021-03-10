@@ -1,11 +1,11 @@
-﻿
-namespace PrismDryIOCProject.Views
+﻿namespace PrismDryIOCProject.Views
 {
     public partial class MainPage
     {
         public MainPage()
         {
             InitializeComponent();
+
         }
     }
 }

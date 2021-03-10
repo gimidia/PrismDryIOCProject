@@ -30,7 +30,7 @@
         </ListView>
         <Label Text="Welcome to Xamarin Forms and Prism!" />
         <Button Text="DisplayAlert" Command="{Binding DisplayAlertCommand}"/>
-        <Button Text="Go To Second Page"
+        <Button Text="Tela Gráficos"
             Command="{Binding SecondPageCommand}"
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
