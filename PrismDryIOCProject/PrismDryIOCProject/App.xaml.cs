@@ -1,5 +1,6 @@
 using Prism;
 using Prism.Ioc;
+using PrismDryIOCProject.Services;
 using PrismDryIOCProject.ViewModels;
 using PrismDryIOCProject.Views;
 using Xamarin.Essentials.Implementation;
@@ -26,6 +27,7 @@ namespace PrismDryIOCProject
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+            containerRegistry.RegisterSingleton<IApiService, ApiService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();

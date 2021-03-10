@@ -6,16 +6,21 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <ListView ItemsSource="{Binding Blogs, Mode=TwoWay}" HasUnevenRows="True" SelectedItem="{Binding SelectedBlog}" local:ItemTappedAttached.Command="{Binding NavigateToBlogCommand}">
+        <ListView ItemsSource="{Binding ColecaoData, Mode=TwoWay}" HasUnevenRows="True" SelectedItem="{Binding SelectedBlog}" local:ItemTappedAttached.Command="{Binding NavigateToBlogCommand}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Frame Margin="10" VerticalOptions="FillAndExpand">
                             <Frame.Content>
                                 <StackLayout>
-                                    <Label Text="{Binding BlogTitle}"/>
+                                    <Label Text="{Binding Nome}"/>
                                     <BoxView Color="LightGray" VerticalOptions="FillAndExpand" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
-                                    <Label Text="{Binding BlogDescription}" LineBreakMode="WordWrap" HeightRequest="100"></Label>
+                                    <Label Text="{Binding Planejado}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding Realizado}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding PeriodoInicio}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding PeriodoFim}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding UnidadeMedida}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding UnidadeMedidaSigla}" HeightRequest="20"></Label>
                                 </StackLayout>
                             </Frame.Content>
                         </Frame>

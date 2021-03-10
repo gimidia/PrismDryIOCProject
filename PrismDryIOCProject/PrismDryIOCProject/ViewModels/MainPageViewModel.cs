@@ -8,11 +8,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using PrismDryIOCProject.Models;
+using System.Collections.ObjectModel;
+using PrismDryIOCProject.Services;
+using System.Threading.Tasks;
+using PrismDryIOCProject.Helpers;
 
 namespace PrismDryIOCProject.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
+        //public ObservableCollection<Metodo> ColecaoData;
+        private ObservableCollection<Metodo> _colecao;
+
+        IApiService _ApiService;
+
         private readonly INavigationService _navigationService;
         public DelegateCommand SecondPageCommand { get; set; }
         public DelegateCommand DisplayAlertCommand { get; }
@@ -64,22 +73,39 @@ namespace PrismDryIOCProject.ViewModels
             set { SetProperty(ref _selectedBlog, value); }
         }
 
+        public ObservableCollection<Metodo> ColecaoData
+        {
+            get { return this._colecao; }
+            set { SetProperty(ref this._colecao, value); }
+        }
+
         public List<Blog> Blogs
         {
             get { return _blogs; }
             set { SetProperty(ref _blogs, value); }
         }
 
-        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
+        public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IApiService apiService)
             : base(navigationService)
         {
+            ColecaoData = new ObservableCollection<Metodo>();
             _navigationService = navigationService;
             _pageDialogService = pageDialogService;
+
+            _ApiService = apiService;
+
+            
             SecondPageCommand = new DelegateCommand(SecondPageAction);
             DisplayAlertCommand = new DelegateCommand(DisplayAlert);
 
             Title = "Main Page";
             NavigateToBlogCommand = new DelegateCommand(NavigateToBlog, () => SelectedBlog != null).ObservesProperty(() => SelectedBlog);
+        }
+
+        public override async void OnNavigatedTo(INavigationParameters parameters)
+        {
+            await LoadAsync();
+
         }
 
         private async void NavigateToBlog()
@@ -100,6 +126,45 @@ namespace PrismDryIOCProject.ViewModels
         {
             var result = await _pageDialogService.DisplayAlertAsync("Alert", "This is an alert from MainPageViewModel.", "Accept", "Cancel");
             Trace.WriteLine(result);
+        }
+
+        private async Task LoadAsync()
+        {
+            try
+            {
+                //IsBusy = true;
+                var response = await _ApiService.GetData(ApiURL.ApiBaseUrl);
+
+                var resultMetodoCollection = response.DataCollection;
+                foreach (Metodo be in resultMetodoCollection)
+                    {
+                        ColecaoData.Add(new Metodo
+                        {
+                            Nome = be.Nome,
+                            Planejado = be.Planejado,
+                            Realizado = be.Realizado,
+                            PeriodoInicio = be.PeriodoInicio,
+                            PeriodoFim = be.PeriodoFim,
+                            UnidadeMedida = be.UnidadeMedida,
+                            UnidadeMedidaSigla = be.UnidadeMedidaSigla
+
+                        });
+                    }
+
+
+
+               
+
+            }
+            catch (Exception ex)
+            {
+                await _pageDialogService.DisplayAlertAsync("Erro", "Erro ao Carregar Dados da Api:" + ex.Message, "OK");
+            }
+            finally
+            {
+
+                //IsBusy = false;
+            }
         }
     }
 }
