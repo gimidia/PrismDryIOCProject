@@ -1,2 +1,2 @@
 # PrismDryIOCProject
-Projeto Xamarin.Forms para estudo do IOC Container DryIOC
+Projeto Xamarin.Forms para o Desafio Xamarin Feito com Prism(IOC Container DryIOC)
