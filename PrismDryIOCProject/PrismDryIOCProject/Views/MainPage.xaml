@@ -15,12 +15,12 @@
                                 <StackLayout>
                                     <Label Text="{Binding Nome}"/>
                                     <BoxView Color="LightGray" VerticalOptions="FillAndExpand" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
-                                    <Label Text="{Binding Planejado}" HeightRequest="20"></Label>
-                                    <Label Text="{Binding Realizado}" HeightRequest="20"></Label>
-                                    <Label Text="{Binding PeriodoInicio}" HeightRequest="20"></Label>
-                                    <Label Text="{Binding PeriodoFim}" HeightRequest="20"></Label>
-                                    <Label Text="{Binding UnidadeMedida}" HeightRequest="20"></Label>
-                                    <Label Text="{Binding UnidadeMedidaSigla}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding Planejado, StringFormat='Planejado: {0}'}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding Realizado, StringFormat='Realizado: {0}'}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding PeriodoInicio, StringFormat='Perio Inicio: {0}'}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding PeriodoFim, StringFormat='Periodo Fim: {0}'}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding UnidadeMedida, StringFormat='Unidade Medida: {0}'}" HeightRequest="20"></Label>
+                                    <Label Text="{Binding UnidadeMedidaSigla, StringFormat='Unidade Medida Sigla: {0}'}" HeightRequest="20"></Label>
                                 </StackLayout>
                             </Frame.Content>
                         </Frame>
