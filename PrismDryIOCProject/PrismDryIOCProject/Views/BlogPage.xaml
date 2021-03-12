@@ -4,18 +4,25 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PrismDryIOCProject.Views.BlogPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms">
     <Frame Margin="10" VerticalOptions="FillAndExpand">
         <Frame.Content>
             <StackLayout VerticalOptions="FillAndExpand">
                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                    <Label Text="{Binding BlogDetail.BlogTitle}" HorizontalOptions="StartAndExpand"/>
-                    <Label Text="{Binding BlogDetail.CreatedBy, StringFormat='Author: {0}'}" HorizontalOptions="End"/>
+                    <Label Text="{Binding BlogDetail.Nome}" HorizontalOptions="StartAndExpand"/>
+                    
                 </StackLayout>
 
                 <BoxView Color="LightGray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
-                <Label Text="{Binding BlogDetail.BlogDescription}" LineBreakMode="WordWrap" VerticalOptions="FillAndExpand"></Label>
-                <Label Text="{Binding BlogDetail.CreatedDate, StringFormat='Date: {0: MM-dd-yyy}'}" VerticalOptions="End" HorizontalOptions="EndAndExpand"/>
+                <Label Text="{Binding BlogDetail.Planejado, StringFormat='Planejado: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding BlogDetail.Realizado, StringFormat='Realizado: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding BlogDetail.PeriodoInicio, StringFormat='Perio Inicio: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding BlogDetail.PeriodoFim, StringFormat='Periodo Fim: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding BlogDetail.UnidadeMedida, StringFormat='Unidade Medida: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding BlogDetail.UnidadeMedidaSigla, StringFormat='Unidade Medida Sigla: {0}'}" HeightRequest="20"></Label>
+                <microcharts:ChartView Chart="{Binding Charts}" HeightRequest="150" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                
             </StackLayout>
         </Frame.Content>
     </Frame>

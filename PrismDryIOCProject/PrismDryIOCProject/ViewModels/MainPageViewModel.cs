@@ -66,8 +66,8 @@ namespace PrismDryIOCProject.ViewModels
 
         };
 
-        private Blog _selectedBlog;
-        public Blog SelectedBlog
+        private Metodo _selectedBlog;
+        public Metodo SelectedBlog
         {
             get { return _selectedBlog; }
             set { SetProperty(ref _selectedBlog, value); }
@@ -94,7 +94,7 @@ namespace PrismDryIOCProject.ViewModels
 
             _ApiService = apiService;
 
-            
+
             SecondPageCommand = new DelegateCommand(SecondPageAction);
             DisplayAlertCommand = new DelegateCommand(DisplayAlert);
 
@@ -112,7 +112,7 @@ namespace PrismDryIOCProject.ViewModels
         {
             var parameter = new NavigationParameters();
             parameter.Add("Blog", SelectedBlog);
-       
+
             await NavigationService.NavigateAsync("BlogPage", parameter);
         }
         private async void SecondPageAction()
@@ -136,24 +136,25 @@ namespace PrismDryIOCProject.ViewModels
                 var response = await _ApiService.GetData(ApiURL.ApiBaseUrl);
 
                 var resultMetodoCollection = response.DataCollection;
+                ColecaoData.Clear();
                 foreach (Metodo be in resultMetodoCollection)
+                {
+                    ColecaoData.Add(new Metodo
                     {
-                        ColecaoData.Add(new Metodo
-                        {
-                            Nome = be.Nome,
-                            Planejado = be.Planejado,
-                            Realizado = be.Realizado,
-                            PeriodoInicio = be.PeriodoInicio,
-                            PeriodoFim = be.PeriodoFim,
-                            UnidadeMedida = be.UnidadeMedida,
-                            UnidadeMedidaSigla = be.UnidadeMedidaSigla
+                        Nome = be.Nome,
+                        Planejado = be.Planejado,
+                        Realizado = be.Realizado,
+                        PeriodoInicio = be.PeriodoInicio,
+                        PeriodoFim = be.PeriodoFim,
+                        UnidadeMedida = be.UnidadeMedida,
+                        UnidadeMedidaSigla = be.UnidadeMedidaSigla
 
-                        });
-                    }
+                    });
+                }
 
 
 
-               
+
 
             }
             catch (Exception ex)

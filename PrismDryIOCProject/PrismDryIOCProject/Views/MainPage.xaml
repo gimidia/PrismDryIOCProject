@@ -7,6 +7,11 @@
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <ListView ItemsSource="{Binding ColecaoData, Mode=TwoWay}" HasUnevenRows="True" SelectedItem="{Binding SelectedBlog}" local:ItemTappedAttached.Command="{Binding NavigateToBlogCommand}">
+            <ListView.Header>
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="Clique no item da lista para ir na Tela Gráficos" FontAttributes="Bold"/>
+                </StackLayout>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -27,10 +32,15 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout>
+                    
+                </StackLayout>
+            </ListView.Footer>
         </ListView>
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-        <Button Text="DisplayAlert" Command="{Binding DisplayAlertCommand}"/>
-        <Button Text="Tela Gráficos"
+        <Label Text="Bem ao Desafio Xamarin" HorizontalOptions="Center" />
+        <!--<Button Text="DisplayAlert" Command="{Binding DisplayAlertCommand}" HorizontalOptions="Center"/>-->
+        <Button Text="SecondPage"
             Command="{Binding SecondPageCommand}"
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />

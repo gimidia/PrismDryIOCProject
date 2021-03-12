@@ -8,8 +8,8 @@
              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms">
     <StackLayout>
 
-        <microcharts:ChartView x:Name="Chart1" HeightRequest="100"/>
-        <microcharts:ChartView x:Name="Chart2" HeightRequest="100"/>
+        <!--<microcharts:ChartView x:Name="Chart1" HeightRequest="100"/>
+        <microcharts:ChartView x:Name="Chart2" HeightRequest="100"/>-->
 
         <Label Text="{Binding NavigationMode}" HorizontalOptions="CenterAndExpand"></Label>
 
