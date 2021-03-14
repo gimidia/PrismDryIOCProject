@@ -10,6 +10,7 @@
             <ListView.Header>
                 <StackLayout HorizontalOptions="Center">
                     <Label Text="Clique no item da lista para ir na Tela Gráficos" FontAttributes="Bold"/>
+                    <ActivityIndicator IsVisible="{Binding Isbusy}" IsRunning="{Binding IsBusy}"/>
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>

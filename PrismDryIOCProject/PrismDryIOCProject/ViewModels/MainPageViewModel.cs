@@ -19,6 +19,7 @@ namespace PrismDryIOCProject.ViewModels
     {
         //public ObservableCollection<Metodo> ColecaoData;
         private ObservableCollection<Metodo> _colecao;
+        private bool _isbusy;
 
         IApiService _ApiService;
 
@@ -85,6 +86,12 @@ namespace PrismDryIOCProject.ViewModels
             set { SetProperty(ref _blogs, value); }
         }
 
+        public bool IsBusy
+        {
+            get { return _isbusy; }
+            set { SetProperty(ref _isbusy, value); }
+        }
+
         public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService, IApiService apiService)
             : base(navigationService)
         {
@@ -132,25 +139,26 @@ namespace PrismDryIOCProject.ViewModels
         {
             try
             {
-                //IsBusy = true;
+                IsBusy = true;
                 var response = await _ApiService.GetData(ApiURL.ApiBaseUrl);
 
                 var resultMetodoCollection = response.DataCollection;
                 ColecaoData.Clear();
-                foreach (Metodo be in resultMetodoCollection)
-                {
-                    ColecaoData.Add(new Metodo
-                    {
-                        Nome = be.Nome,
-                        Planejado = be.Planejado,
-                        Realizado = be.Realizado,
-                        PeriodoInicio = be.PeriodoInicio,
-                        PeriodoFim = be.PeriodoFim,
-                        UnidadeMedida = be.UnidadeMedida,
-                        UnidadeMedidaSigla = be.UnidadeMedidaSigla
+                ColecaoData = new ObservableCollection<Metodo>(resultMetodoCollection);
+                //foreach (Metodo be in resultMetodoCollection)
+                //{
+                //    ColecaoData.Add(new Metodo
+                //    {
+                //        Nome = be.Nome,
+                //        Planejado = be.Planejado,
+                //        Realizado = be.Realizado,
+                //        PeriodoInicio = be.PeriodoInicio,
+                //        PeriodoFim = be.PeriodoFim,
+                //        UnidadeMedida = be.UnidadeMedida,
+                //        UnidadeMedidaSigla = be.UnidadeMedidaSigla
 
-                    });
-                }
+                //    });
+                //}
 
 
 
@@ -164,7 +172,7 @@ namespace PrismDryIOCProject.ViewModels
             finally
             {
 
-                //IsBusy = false;
+                IsBusy = false;
             }
         }
     }
