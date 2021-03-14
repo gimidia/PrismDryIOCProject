@@ -35,6 +35,7 @@ namespace PrismDryIOCProject
             containerRegistry.RegisterForNavigation<ThirdPage, ThirdPageViewModel>();
             containerRegistry.RegisterForNavigation<BlogPage, BlogPageViewModel>();
             containerRegistry.RegisterForNavigation<MenuPage, MenuPageViewModel>();
+            containerRegistry.RegisterForNavigation<ChartPage, ChartPageViewModel>();
         }
     }
 }

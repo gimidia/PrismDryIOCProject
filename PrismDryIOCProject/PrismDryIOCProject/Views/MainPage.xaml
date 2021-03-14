@@ -6,7 +6,7 @@
              Title="{Binding Title}">
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <ListView ItemsSource="{Binding ColecaoData, Mode=TwoWay}" HasUnevenRows="True" SelectedItem="{Binding SelectedBlog}" local:ItemTappedAttached.Command="{Binding NavigateToBlogCommand}">
+        <ListView ItemsSource="{Binding ColecaoData, Mode=TwoWay}" HasUnevenRows="True" SelectedItem="{Binding SelectedChart}" local:ItemTappedAttached.Command="{Binding NavigateToChartCommand}">
             <ListView.Header>
                 <StackLayout HorizontalOptions="Center">
                     <Label Text="Clique no item da lista para ir na Tela Gráficos" FontAttributes="Bold"/>
@@ -40,7 +40,6 @@
             </ListView.Footer>
         </ListView>
         <Label Text="Bem Vindo ao Desafio Xamarin" HorizontalOptions="Center" />
-        <!--<Button Text="DisplayAlert" Command="{Binding DisplayAlertCommand}" HorizontalOptions="Center"/>-->
         <Button Text="SecondPage"
             Command="{Binding SecondPageCommand}"
            HorizontalOptions="Center"

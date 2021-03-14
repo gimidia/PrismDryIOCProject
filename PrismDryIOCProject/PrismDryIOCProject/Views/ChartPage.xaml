@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismDryIOCProject.Views.ChartPage"
+             Title="{Binding Title}"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms">
+    <Frame Margin="10" VerticalOptions="FillAndExpand">
+        <Frame.Content>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                    <Label Text="{Binding ChartDetail.Nome}" HorizontalOptions="StartAndExpand"/>
+
+                </StackLayout>
+
+                <BoxView Color="LightGray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0" />
+                <Label Text="{Binding ChartDetail.Planejado, StringFormat='Planejado: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding ChartDetail.Realizado, StringFormat='Realizado: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding ChartDetail.PeriodoInicio, StringFormat='Perio Inicio: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding ChartDetail.PeriodoFim, StringFormat='Periodo Fim: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding ChartDetail.UnidadeMedida, StringFormat='Unidade Medida: {0}'}" HeightRequest="20"></Label>
+                <Label Text="{Binding ChartDetail.UnidadeMedidaSigla, StringFormat='Unidade Medida Sigla: {0}'}" HeightRequest="20"></Label>
+                <microcharts:ChartView Chart="{Binding Charts}" HeightRequest="150" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+
+            </StackLayout>
+        </Frame.Content>
+    </Frame>
+
+</ContentPage>
