@@ -39,7 +39,7 @@
                 </StackLayout>
             </ListView.Footer>
         </ListView>
-        <Label Text="Bem ao Desafio Xamarin" HorizontalOptions="Center" />
+        <Label Text="Bem Vindo ao Desafio Xamarin" HorizontalOptions="Center" />
         <!--<Button Text="DisplayAlert" Command="{Binding DisplayAlertCommand}" HorizontalOptions="Center"/>-->
         <Button Text="SecondPage"
             Command="{Binding SecondPageCommand}"
